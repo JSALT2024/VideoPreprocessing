@@ -186,7 +186,7 @@ def update_line(file_path, filename, new_number):
 
 def process_video(input_video_path, output_video_path, log_file_path, file_ocred_log):
     if not os.access(input_video_path, os.R_OK):
-        print(f"Error: The file '{file_path}' is not readable.")
+        print(f"Error: The file '{input_video_path}' is not readable.")
         update_line(log_file_path, input_video_path[-29:], 4)
         return
 

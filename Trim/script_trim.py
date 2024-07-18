@@ -126,7 +126,7 @@ def read_csv_with_variable_columns(file_path):
     
     return pd.DataFrame(data)
 
-if __name__ == "__main__":
+def main(args):
     data_dir = args.inputdir
     csv_dir = args.csv_dir
     output_dir = args.output
@@ -189,3 +189,13 @@ if __name__ == "__main__":
     end_time = time.time()
 
     print(f"Trim in {end_time-start_time}")
+    
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process videos with OCR")
+    parser.add_argument('--inputdir', type=str, required=True, help="Path to the input files")
+    parser.add_argument('--csv_dir', type=str, required=True, help="Output logfile")
+    parser.add_argument('--output', type=str, required=True, help="Path to the output video folder")
+    args = parser.parse_args()
+    
+    main(args)
+
