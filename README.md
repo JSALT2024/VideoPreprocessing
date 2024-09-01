@@ -35,7 +35,11 @@ Install package dependencies:
 pip install -r requirements.txt
 ```
 
-### How2Sign dataset trimming
-- Execute _csv_prep.py_ with dataset .csvv metadata file expected as an input, outputs restructuralized .csv metadata file with 2 lines for given video clips, first line is a list of end and start frames for each clip, second line is a list of clip names.
-- Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input files, output logfile path and path to the output clip folder. Parameters are explained further in the ArgumentParser.
+- How2Sign dataset trimming
+    - Execute _csv_prep.py_ with dataset metadata file expected as an input, outputs restructuralized .csv metadata file with 2 lines for given video clips, first line is a list of end and start frames for each clip, second line is a list of clip names.
+    - Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input files, output logfile !metadata.csv path and path to the output clip folder. Parameters are explained further in the ArgumentParser.
+    - Trimmed clips are saved in the output clip folder.
 
+### YouTubeASL dataset trimming
+- Execute _csv_prep.py_ with dataset metadata file expected as an input, outputs restructuralized .csv metadata file with 1 line including end and start frame for each video clip.
+- 
