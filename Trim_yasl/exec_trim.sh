@@ -11,7 +11,7 @@ OUT_DIR="auto/plzen1/home/mhruz/JSALT2024/YouTubeASL/clips/"
 module load mambaforge
 conda activate Trim
 cd /storage/plzen1/home/valacho/SignLLM/trim/scripts_trim
-python trim2.py \
+python script_trim.py \
 	--inputdir ${IN_DIR} \
 	--csv_dir ${LOG_DIR} \
 	--output ${OUT_DIR} \
