@@ -68,8 +68,8 @@ def process_video(video_path, csv_path):
     print(f"Total time taken: {end_time - start_time:.2f} seconds")
 
 # Define paths
-video_path = 'C:/Users/valac/OneDrive - Západočeská univerzita v Plzni/JHU/work/transcribe_by_ocr/video.mp4'
-csv_path = 'C:/Users/valac/OneDrive - Západočeská univerzita v Plzni/JHU/work/transcribe_by_ocr/annotations_ocr.csv'
+video_path = 'JHU/work/transcribe_by_ocr/video.mp4'
+csv_path = 'JHU/work/transcribe_by_ocr/annotations_ocr.csv'
 
 # Run the main process
 process_video(video_path, csv_path)
