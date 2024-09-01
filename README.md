@@ -35,11 +35,18 @@ Install package dependencies:
 pip install -r requirements.txt
 ```
 
-- How2Sign dataset trimming
-    - Execute _csv_prep.py_ with dataset metadata file expected as an input, outputs restructuralized .csv metadata file with 2 lines for given video clips, first line is a list of end and start frames for each clip, second line is a list of clip names.
-    - Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input files, output logfile !metadata.csv path and path to the output clip folder. Parameters are explained further in the ArgumentParser.
-    - Trimmed clips are saved in the output clip folder.
+### How2Sign dataset trimming
+- Execute _csv_prep.py_ with dataset metadata file expected as an input, outputs restructuralized .csv metadata file with 2 lines for given video clips, first line is a list of end and start frames for each clip, second line is a list of clip names.
+- Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input videos, output logfile !metadata.csv path and path to the output clip folder. Parameters are described in the ArgumentParser.
+- Trimmed clips are saved in the output clip folder.
 
 ### YouTubeASL dataset trimming
 - Execute _csv_prep.py_ with dataset metadata file expected as an input, outputs restructuralized .csv metadata file with 1 line including end and start frame for each video clip.
-- 
+- Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input videos and .vtt files in the same folder paired by names, output logfile !metadata.csv path and path to the output clip folder. Parameters are described in the ArgumentParser.
+- Note that the input folder should include 2 files for each video.
+    - the video file itself in .mp4 or .webm
+    - the .vtt file with subtitles
+- Trimmed clips are saved in the output clip folder.
+
+### Video Optical Character Recognition
+
