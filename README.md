@@ -35,5 +35,8 @@ Install package dependencies:
 pip install -r requirements.txt
 ```
 
-### Trim of How2Sign
+### How2Sign dataset trimming
+- Execute _csv_prep.py_ with dataset .csvv metadata file expected as an input, outputs restructuralized .csv metadata file with 2 lines for given video clips, first line is a list of end and start frames for each clip, second line is a list of clip names.
+- Execute _script_trim.py_ with _exec_trim.sh_ expecting: 
+	 -test
 
