@@ -3,8 +3,6 @@
 The repository of code utilized for the preprocessing of [YoutubeASL](https://arxiv.org/abs/2306.15162) dataset for SignLLaVA team at [JSALT 2024](https://www.clsp.jhu.edu/2024-tenth-jelinek-summer-workshop-on-speech-and-language-technology-schedule/) workshop.
 
 ## Repository Structure
-
-<root-directory>/  
 ├── README.md                     # Description  
 ├── .gitignore                    # .gitignore file  
 ├── Trim_h2s/                     # Files for the How2Sign dataset trimming  
@@ -26,3 +24,11 @@ The repository of code utilized for the preprocessing of [YoutubeASL](https://ar
 ├── transcribe_by_ocr/            # Files for the video subtitles transcription  
 │   ├── ocr_transcribe.py         # Script for transcription of embedded subtitles in the video to a .csv file  
 │   └── transcribed_sample.csv    # A sample of the output before post-processing  
+
+
+Text before indenting:
+<pre style="margin: 0;">
+chesus<span style="padding-left: 20px;">This is the first indented line.</span>
+<span style="padding-left: 20px;">This is the second indented line.</span>
+<span style="padding-left: 20px;">This is the third indented line.</span>
+</pre>
