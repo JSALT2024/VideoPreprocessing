@@ -24,5 +24,5 @@ The repository of code utilized for the preprocessing of [YoutubeASL](https://ar
 │   └── execute_ocr.sh            # Shell script to execute ocr_script.py with PBS  
 ├── transcribe_by_ocr/            # Files for the video subtitles transcription  
 │   ├── ocr_transcribe.py         # Script for transcription of embedded subtitles in the video to a .csv file  
-│   └── transcribed_sample.csv    # A sample of the output before post-processing  
+└───└── transcribed_sample.csv    # A sample of the output before post-processing  
 </pre>
