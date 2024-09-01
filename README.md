@@ -27,3 +27,13 @@ The repository of code utilized for the preprocessing of [YoutubeASL](https://ar
 │   ├── ocr_transcribe.py         # Script for transcription of embedded subtitles in the video to a .csv file  
 └───└── transcribed_sample.csv    # A sample of the output before post-processing  
 </pre>
+
+## Execution
+Install package dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+### Trim of How2Sign
+
