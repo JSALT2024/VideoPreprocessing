@@ -3,7 +3,6 @@ import re
 import glob
 import itertools
 import cv2
-import webvtt
 import argparse
 import csv
 import time
