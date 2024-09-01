@@ -6,6 +6,7 @@ The repository of code utilized for the preprocessing of [YoutubeASL](https://ar
 <pre>
 ├── README.md                     # Description  
 ├── .gitignore                    # .gitignore file  
+├── requirements.txt              # requirements file  
 ├── Trim_h2s/                     # Files for the How2Sign dataset trimming  
 │   ├── csv_prep.py               # Script for the restructuralization of the original H2S metadata csv  
 │   ├── script_trim.py            # Main How2Sign trim script  

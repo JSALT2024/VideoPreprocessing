@@ -1,0 +1,9 @@
+numpy
+easyocr
+matplotlib
+moviepy
+opencv-python
+ffmpeg-python
+pytesseract
+webvtt-py
+pandas
