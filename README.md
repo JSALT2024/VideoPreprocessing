@@ -21,7 +21,7 @@ The repository of code utilized for the preprocessing of [YoutubeASL](https://ar
 │   ├── ocr_script.py             # Main OCR script  
 │   ├── ocr_pytesseract.py        # OCR test script using pytesseract library  
 │   ├── ocr_script_local.py       # OCR script to run on a local machine for testing  
-│   ├── files_timestamps_test.csv # Sample file with clip names and identifier if processed  
+│   ├── processed_log_sample.csv  # Sample file with clip names and identifier if processed  
 │   └── execute_ocr.sh            # Shell script to execute ocr_script.py with PBS  
 ├── transcribe_by_ocr/            # Files for the video subtitles transcription  
 │   ├── ocr_transcribe.py         # Script for transcription of embedded subtitles in the video to a .csv file  
@@ -45,8 +45,18 @@ pip install -r requirements.txt
 - Execute _script_trim.py_ with _exec_trim.sh_ expecting path to the input videos and .vtt files in the same folder paired by names, output logfile !metadata.csv path and path to the output clip folder. Parameters are described in the ArgumentParser.
 - Note that the input folder should include 2 files for each video.
     - the video file itself in .mp4 or .webm
-    - the .vtt file with subtitles
+    - the .vtt file with subtitle annotation and timeframes
 - Trimmed clips are saved in the output clip folder.
 
 ### Video Optical Character Recognition
+- Execute _ocr_script.py with _execute_ocr.sh_ expecting:
+    - variable filenames as an output log file including information about clips to process and which files were already processed and which were not, the file should be prepared beforehand. See the sample format in the processed_log_sample.csv file. The default identifier is 0, identifier 1 marks processed clips, identifier 2 marks clips that were not found in the input directory, identifier 3 marks clips that were already found in the output directory and identifier 4 marks clips that were not readable.  
+    - variable logfile as an output logfile  
+    - variable input as a directory for the input videos  
+    - variable output as a directory for the processed videos  
+- Apply similar prerequisites for the scripts _ocr_pytesseract.py_ and _ocr_script_local.py_ with minor changes in paths and output log files (see in the scripts).  
 
+### Optical Character Recognition embedded video subtitles transcription tool
+- Execute _ocr_transcribe.py_ with the .mp4 video path with embedded subtitles as an input in the variable video_path.  
+- Set up the subtitles region coordinates at lines 15-16.  
+- See the .csv output in the csv_path variable directory.  
