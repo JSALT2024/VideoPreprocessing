@@ -135,7 +135,7 @@ def main(args):
     
     file_names = get_file_names(data_dir)
     file_names = [item for item in file_names if "webm.part" not in item]
-    ffmpeg_path = "/auto/plzen1/home/valacho/ffmpeg/"  # Full path to the ffmpeg executable
+    ffmpeg_path = args.ffmpeg # Full path to the ffmpeg executable
     all_config_data = []
 
     try:
@@ -195,6 +195,7 @@ if __name__ == "__main__":
     parser.add_argument('--inputdir', type=str, required=True, help="Path to the input files")
     parser.add_argument('--csv_dir', type=str, required=True, help="Output logfile")
     parser.add_argument('--output', type=str, required=True, help="Path to the output video folder")
+    parser.add_argument('--ffmpeg', type=str, required=True, help="Path to the ffmpeg executable")
     args = parser.parse_args()
     
     main(args)
