@@ -1,4 +1,4 @@
-# Video preprocessing of YouTubeASL dataset
+# Video preprocessing of YouTubeASL and H2S dataset
 
 The repository of code utilized for the preprocessing of [YoutubeASL](https://arxiv.org/abs/2306.15162) dataset for SignLLaVA team at [JSALT 2024](https://www.clsp.jhu.edu/2024-tenth-jelinek-summer-workshop-on-speech-and-language-technology-schedule/) workshop.
 
