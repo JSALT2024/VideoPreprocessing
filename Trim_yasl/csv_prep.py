@@ -41,15 +41,17 @@ def create_csv_from_frames(frames, output_csv_path):
             row = [id_col] + [f"{start},{end}" for start, end in frame_list]
             csvwriter.writerow(row)
 
-def main():
-    parser = argparse.ArgumentParser(description="Process a TSV file and generate a CSV output.")
-    parser.add_argument("input_tsv", type=str, help="Path to the input .tsv file.")
-    parser.add_argument("output_csv", type=str, help="Path to the output .csv file.")
-    
-    args = parser.parse_args()
+def main(args):
+    tsv_file_path = args.input_tsv
+    output_csv_path = args.output_csv
 
-    frames = process_tsv(args.input_tsv)
-    create_csv_from_frames(frames, args.output_csv)
+    frames = process_tsv(tsv_file_path)
+    create_csv_from_frames(frames, output_csv_path)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Process a TSV file and generate a CSV output.")
+    parser.add_argument('--input_tsv', type=str, required=True, help="Path to the input .tsv file")
+    parser.add_argument('--output_csv', type=str, required=True, help="Path to the output .csv file")
+    args = parser.parse_args()
+
+    main(args)
