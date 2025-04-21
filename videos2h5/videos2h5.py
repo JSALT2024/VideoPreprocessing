@@ -1,6 +1,8 @@
 import argparse
 import h5py
 import os
+import decord
+from io import BytesIO
 
 
 def save_raw_videos_to_h5(video_paths, h5_path):
@@ -28,6 +30,24 @@ def find_video_files(directory, extensions=None):
         if any(fname.lower().endswith(ext) for ext in extensions):
             video_files.append(os.path.join(directory, fname))
     return video_files
+
+
+def video_bytes_to_frames_decord(byte_data, as_array=True):
+    """Decode video bytes into frames using decord.
+
+    Args:
+        byte_data (bytes): Raw bytes of the video file.
+        as_array (bool): If True, return frames as a stacked NumPy array. Else, return list of frames.
+
+    Returns:
+        np.ndarray or list: Video frames.
+    """
+    decord.bridge.set_bridge('numpy')  # Use NumPy backend
+    video_stream = decord.VideoReader(BytesIO(byte_data), ctx=decord.cpu(0))
+    frames = video_stream.get_batch(range(len(video_stream)))  # Efficient batch load
+
+    return frames if as_array else [frame.asnumpy() for frame in frames]
+
 
 
 def main():
