@@ -49,19 +49,34 @@ def video_bytes_to_frames_decord(byte_data, as_array=True):
     return frames if as_array else [frame.asnumpy() for frame in frames]
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Store video files as raw bytes in an HDF5 file.')
-    parser.add_argument('input_dir', type=str, help='Directory containing video files.')
-    parser.add_argument('output_h5', type=str, help='Output HDF5 file path.')
-    parser.add_argument('--ext', nargs='*', default=['.mp4', '.avi', '.mov', '.mkv'],
-                        help='List of video file extensions to include (default: .mp4 .avi .mov .mkv)')
-    args = parser.parse_args()
+def chunk_list(lst, size):
+    for i in range(0, len(lst), size):
+        yield lst[i:i + size]
 
+
+def save_videos_to_shards(video_paths, output_prefix, files_per_shard):
+    for i, chunk in enumerate(chunk_list(video_paths, files_per_shard)):
+        shard_name = f"{output_prefix}_{i:03d}.h5"
+        print(f"Saving {len(chunk)} videos to shard: {shard_name}")
+        save_raw_videos_to_h5(chunk, shard_name)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Store video files as raw bytes in HDF5 shards.')
+    parser.add_argument('input_dir', type=str, help='Directory containing video files.')
+    parser.add_argument('output_prefix', type=str, help='Prefix for output HDF5 shard files.')
+    parser.add_argument('--ext', nargs='*', default=['.mp4', '.avi', '.mov', '.mkv'],
+                        help='List of video file extensions to include.')
+    parser.add_argument('--files_per_shard', type=int, default=100,
+                        help='Maximum number of video files per HDF5 shard (default: 100).')
+
+    args = parser.parse_args()
     video_files = find_video_files(args.input_dir, args.ext)
+
     if not video_files:
         print("No video files found in the specified directory with the given extensions.")
         return
 
-    print(f"Found {len(video_files)} video files. Saving to {args.output_h5}")
-    save_raw_videos_to_h5(video_files, args.output_h5)
-    print("Done.")
+    print(f"Found {len(video_files)} video files.")
+    save_videos_to_shards(video_files, args.output_prefix, args.files_per_shard)
+    print("All shards saved.")
