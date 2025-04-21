@@ -49,7 +49,6 @@ def video_bytes_to_frames_decord(byte_data, as_array=True):
     return frames if as_array else [frame.asnumpy() for frame in frames]
 
 
-
 def main():
     parser = argparse.ArgumentParser(description='Store video files as raw bytes in an HDF5 file.')
     parser.add_argument('input_dir', type=str, help='Directory containing video files.')
